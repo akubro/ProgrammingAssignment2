@@ -3,8 +3,6 @@
 ## The following pair of functions caches inverse matrix
 
 ## This function creates a special "matrix" object that can cache its inverse.
-
-
 makeCacheMatrix <- function(x = matrix()) {
 	i <- NULL
         set <- function(y) {
@@ -20,20 +18,16 @@ makeCacheMatrix <- function(x = matrix()) {
              getdest = getdest)
 }
 
-}
-
-
 ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
-
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of 'x'
 	i <- x$getdest()
     if (!is.null(i)) {
-        message("getting cached data")
+        message("cached data")
         return(i)
         }
-    mat <- x$get()
-    i <- solve(mat, ...)
+    data <- x$get()
+    i <- solve(data, ...)
     x$setdest(i)
     i
 }
