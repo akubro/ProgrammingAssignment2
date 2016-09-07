@@ -33,7 +33,7 @@ cacheSolve <- function(x, ...) {
         return(i)
         }
     mat <- x$get()
-    inv <- solve(mat, ...)
+    i <- solve(mat, ...)
     x$setdest(i)
     i
 }
